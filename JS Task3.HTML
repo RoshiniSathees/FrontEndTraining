@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row" style="height: 200px;">
+            <div class="col-4 border border-dark">
+            </div>
+            <div class="col-2 border border-dark" id="nl">
+            </div>
+            <div class="col-2 border border-dark" id="nr">
+            </div>
+            <div class="col-4 border border-dark">
+            </div>
+        </div>
+        <div class="row" style="height: 100px;">
+            <div class="col-4 border border-dark" id="wr">
+            </div>
+            <div class="col-2 border border-dark" id="1"><button class="btn btn-primary" style="padding: 10px; margin: 20px 50px;" onclick="north()">NORTH</button></div>
+            <div class="col-2 border border-dark" id="2"><button class="btn btn-primary" style="padding: 10px; margin: 20px 50px;" onclick="east()">EAST</button></div>
+            <div class="col-4 border border-dark" id="el">
+            </div>
+        </div>
+        <div class="row" style="height: 100px;">
+            <div class="col-4 border border-dark" id="wl">
+            </div>
+            <div class="col-2 border border-dark" id="3"><button class="btn btn-primary" style="padding: 10px; margin: 20px 50px;" onclick="west()">WEST</button></div>
+
+            <div class="col-2 border border-dark" id="4"><button class="btn btn-primary" style="padding: 10px; margin: 20px 50px;" onclick="south()">SOUTH</button></div>
+
+            <div class="col-4 border border-dark" id="er">
+            </div>
+        </div>
+        <div class="row" style="height: 200px;">
+            <div class="col-4 border border-dark">
+            </div>
+            <div class="col-2 border border-dark" id="sr">
+            </div>
+            <div class="col-2 border border-dark" id="sl">
+            </div>
+            <div class="col-4 border border-dark">
+            </div>
+        </div>
+
+    </div>
+    <script>
+        function resetSignal() {
+            document.getElementById("el").style.backgroundColor = "green";
+            document.getElementById("er").style.backgroundColor = "green";
+            document.getElementById("nl").style.backgroundColor = "green";
+            document.getElementById("nr").style.backgroundColor = "green";
+            document.getElementById("sl").style.backgroundColor = "green";
+            document.getElementById("sr").style.backgroundColor = "green";
+            document.getElementById("1").style.backgroundColor = "green";
+            document.getElementById("2").style.backgroundColor = "green";
+            document.getElementById("3").style.backgroundColor = "green";
+            document.getElementById("4").style.backgroundColor = "green";
+            document.getElementById("wr").style.backgroundColor = "green";
+            document.getElementById("wl").style.backgroundColor = "green";
+
+        }
+        function north() {
+            resetSignal();
+            document.getElementById("er").style.backgroundColor = "red";
+            document.getElementById("sr").style.backgroundColor = "red";
+            document.getElementById("wr").style.backgroundColor = "red";
+        }
+        function east() {
+            resetSignal();
+            document.getElementById("sr").style.backgroundColor = "red";
+            document.getElementById("wr").style.backgroundColor = "red";
+            document.getElementById("nr").style.backgroundColor = "red";
+        }
+        function south() {
+            resetSignal();
+            document.getElementById("wr").style.backgroundColor = "red";
+            document.getElementById("nr").style.backgroundColor = "red";
+            document.getElementById("er").style.backgroundColor = "red";
+        }
+        function west() {
+            resetSignal();
+            document.getElementById("nr").style.backgroundColor = "red";
+            document.getElementById("er").style.backgroundColor = "red";
+            document.getElementById("sr").style.backgroundColor = "red";
+        }
+    </script>
+
+
+</body>
+
+</html>
