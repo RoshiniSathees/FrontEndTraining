@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>TASK 1</h1>
+    <div>
+        <label for="">1-Positive or negative</label>
+        <input class="pos" type="number" name="" id="">
+        <button onclick="positive()">Check</button>
+        <p class="task1"></p>
+    </div>
+    <div>
+        <label for="">2-Greatest Number</label>
+        <input class="greatNum1" type="number" size="1">
+        <input class="greatNum2" type="number" size="1">
+        <button onclick="greatest()">Check</button>
+        <p class="task2"></p>
+    </div>
+    <div>
+        <label for="">3-smallest Number</label>
+        <input class="small1" size="1">
+        <input class="small2" size="1">
+        <input class="small3" size="1">
+        <button class="smallNum">Check</button>
+        <p class="task3"></p>
+    </div>
+    <div>
+        <label for="">4-Odd/Even</label>
+        <input class="oddEven" size="1">
+        <button class="even">Check</button>
+        <p class="task4"></p>
+    </div>
+    <div>
+        <label for="">5-1 to 5(Full form)</label>
+        <input class="fullForm" size="1">
+        <button class="form1">Check</button>
+        <p class="task5"></p>
+    </div>
+    <hr>
+    <script>
+        // 1)positive or negative
+        function positive() {
+            var d = Number(document.querySelector(".pos").value)
+            var positive = ""
+            if (d > 0) {
+                positive = "positive number"
+            }
+            else {
+                positive = "negative number"
+            }
+            document.querySelector(".task1").innerHTML = positive
+        }
+
+        // 2)greatest number
+        function greatest() {
+            var d = Number(document.querySelector(".greatNum1").value)
+            var e = Number(document.querySelector(".greatNum2").value)
+            var greatNum = ""
+            if (d > e) {
+                greatNum = d + " is the Greatest  Number"
+            }
+            else {
+                greatNum = e + " is the Greatest Number"
+            }
+            document.querySelector(".task2").innerHTML = `<b>${greatNum}</b>`
+
+        }
+        // 3)smallest Number
+        document.querySelector(".smallNum").addEventListener("click", () => {
+            var a = Number(document.querySelector(".small1").value)
+            var b = Number(document.querySelector(".small2").value)
+            var c = Number(document.querySelector(".small3").value)
+            document.querySelector(".task3").innerHTML = `${Math.min(a, b, c)} is the smallest Number`
+        })
+        // 4)odd or even
+        document.querySelector(".even").addEventListener("click", () => {
+            var f = Number(document.querySelector(".oddEven").value)
+            var d = ""
+            // ternary op
+            f % 2 == 0 ? d = "Even Number" : d = "Odd Number"
+            document.querySelector(".task4").innerHTML = d
+        })
+        // 5)(1 to 5) full form
+        document.querySelector(".form1").addEventListener("click", () => {
+            var f = Number(document.querySelector(".fullForm").value)
+            var d = ["one", "two", "three", "four", "five"]
+            document.querySelector(".task5").innerHTML = d[f - 1]
+        })
+    </script>
+
+
+    <center>
+        <h1>TASK 2</h1>
+    </center>
+    <div>
+        <label for="">1-Enter the Bill Amount</label>
+        <input type="text" class="bill">
+        <button class="bill2">Check</button>
+        <p class="bill3"></p>
+    </div>
+    <div>
+        <label for="">2-Enter the Salary</label>
+        <input type="text" class="salary">
+        <label for="">Enter your Experience</label>
+        <input type="number" class="Experience">
+        <button class="hike">Check</button>
+        <p class="hikeCheck"></p>
+    </div>
+    <div>
+        <label for="">3-Enter the bill Amount</label>
+        <input type="text" class="Amount">
+        <label for="">Payment Mode</label>
+        <select name="cash" id="cash" class="Payment">
+            <option value="cash">Cash</option>
+            <option value="card">Card</option>
+        </select>
+        <button class="click">Check</button>
+        <p class="gst"></p>
+    </div>
+    <div>
+        <label for="">4-Total no.of days</label>
+        <input type="text" class="days">
+        <label for="">Days attended</label>
+        <input type="text" class="dayAttended">
+        <label for="">Medical Leave</label>
+        <select name="yes" id="yes" class="medicalLeave">
+            <option value="Yes">YES</option>
+            <option value="No">No</option>
+        </select>
+        <button class="Check1">Check</button>
+        <p class="Medical"></p>
+    </div>
+    <div>
+        <label for="">5-Enter the mark</label>
+        <input type="text" class="grade">
+        <button class="gradeSystem">Check</button>
+        <p class="system"></p>
+    </div>
+    <script>
+        document.querySelector(".bill2").addEventListener("click", () => {
+            var d = Number(document.querySelector(".bill").value)
+            var w = ""
+            if (d > 2000) {
+                w = d - (d * (10 / 100))
+            }
+            else {
+                w = d
+            }
+            document.querySelector(".bill3").innerHTML = `The Bill amount is ${w} `
+        })
+        // 2) Apply a hike of 30%
+        document.querySelector(".hike").addEventListener("click", () => {
+            var a = Number(document.querySelector(".salary").value)
+            var b = document.querySelector(".Experience").value
+            var c = ""
+            if (a < 30000 && b > 3) {
+                c = a + (a * (30 / 100))
+            }
+            else {
+                c = "Not eligible for getting Hike"
+            }
+            document.querySelector(".hikeCheck").innerHTML = `The Salary is ${c}`
+        })
+        // 3-apply 3 percent service charges
+        document.querySelector(".click").addEventListener("click", () => {
+            var a = Number(document.querySelector(".Amount").value)
+            var b = document.querySelector(".Payment").value
+            var c = a
+            if (b == "card") {
+                c += a * (8 / 100)
+            }
+            else {
+                c += a * (5 / 100)
+            }
+            document.querySelector(".gst").innerHTML = `Final Bill Amount is ${c}`
+        })
+        // 4-Medical leave
+        document.querySelector(".Check1").addEventListener("click", () => {
+            var a = Number(document.querySelector(".days").value)
+            var b = Number(document.querySelector(".dayAttended").value)
+            var b1 = Number(document.querySelector(".medicalLeave").value)
+            var c = ''
+            var averageDays = a * 0.75
+            if (b > averageDays || b1 == "Yes") {
+                c = "You are Eligible for the Leave"
+            }
+            else {
+                c = "Not eligible for Leave"
+            }
+            document.querySelector(".Medical").innerHTML = c
+            // another method --(100*attendeddays)/totaldays;
+        })
+        // Grade system
+        document.querySelector(".gradeSystem").addEventListener("click", () => {
+            var a = Number(document.querySelector(".grade").value)
+            var b = ""
+            if (a >= 90 && a <= 100) {
+                b = "A Grade"
+            }
+            else if (a >= 80 && a < 90) {
+                b = "B Grade"
+            }
+            else if (a >= 70 && a < 80) {
+                b = "C Grade"
+            }
+            else if (a >= 60 && a < 70) {
+                b = "D Grade"
+            }
+            else if (a >= 50 && a < 60) {
+                b = "E Grade"
+            }
+            else {
+                b = "Fail Aitahh"
+            }
+            document.querySelector(".system").innerHTML = b
+
+        })
+    </script>
+
+    <body>
+
+
+        <center>
+            <h1>Task 3</h1>
+            <h1>Traffic signal</h1>
+        </center>
+
+        <div class="container">
+            <div class="row" style="height: 200px;">
+                <div class="col-4 border border-dark">
+                </div>
+                <div class="col-2 border border-dark" id="nl">
+                </div>
+                <div class="col-2 border border-dark" id="nr">
+                </div>
+                <div class="col-4 border border-dark">
+                </div>
+            </div>
+            <div class="row" style="height: 100px;">
+                <div class="col-4 border border-dark" id="wr">
+                </div>
+                <div class="col-2 border border-dark" id="1"><button class="btn btn-primary"
+                        style="padding: 10px; margin: 20px 50px;" onclick="north()">NORTH</button></div>
+                <div class="col-2 border border-dark" id="2"><button class="btn btn-primary"
+                        style="padding: 10px; margin: 20px 50px;" onclick="east()">EAST</button></div>
+                <div class="col-4 border border-dark" id="el">
+                </div>
+            </div>
+            <div class="row" style="height: 100px;">
+                <div class="col-4 border border-dark" id="wl">
+                </div>
+                <div class="col-2 border border-dark" id="3"><button class="btn btn-primary"
+                        style="padding: 10px; margin: 20px 50px;" onclick="west()">WEST</button></div>
+
+                <div class="col-2 border border-dark" id="4"><button class="btn btn-primary"
+                        style="padding: 10px; margin: 20px 50px;" onclick="south()">SOUTH</button></div>
+
+                <div class="col-4 border border-dark" id="er">
+                </div>
+            </div>
+            <div class="row" style="height: 200px;">
+                <div class="col-4 border border-dark">
+                </div>
+                <div class="col-2 border border-dark" id="sr">
+                </div>
+                <div class="col-2 border border-dark" id="sl">
+                </div>
+                <div class="col-4 border border-dark">
+                </div>
+            </div>
+
+        </div>
+        <script>
+            function resetSignal() {
+                document.getElementById("el").style.backgroundColor = "green";
+                document.getElementById("er").style.backgroundColor = "green";
+                document.getElementById("nl").style.backgroundColor = "green";
+                document.getElementById("nr").style.backgroundColor = "green";
+                document.getElementById("sl").style.backgroundColor = "green";
+                document.getElementById("sr").style.backgroundColor = "green";
+                document.getElementById("1").style.backgroundColor = "green";
+                document.getElementById("2").style.backgroundColor = "green";
+                document.getElementById("3").style.backgroundColor = "green";
+                document.getElementById("4").style.backgroundColor = "green";
+                document.getElementById("wr").style.backgroundColor = "green";
+                document.getElementById("wl").style.backgroundColor = "green";
+
+            }
+            function north() {
+                resetSignal();
+                document.getElementById("er").style.backgroundColor = "red";
+                document.getElementById("sr").style.backgroundColor = "red";
+                document.getElementById("wr").style.backgroundColor = "red";
+            }
+            function east() {
+                resetSignal();
+                document.getElementById("sr").style.backgroundColor = "red";
+                document.getElementById("wr").style.backgroundColor = "red";
+                document.getElementById("nr").style.backgroundColor = "red";
+            }
+            function south() {
+                resetSignal();
+                document.getElementById("wr").style.backgroundColor = "red";
+                document.getElementById("nr").style.backgroundColor = "red";
+                document.getElementById("er").style.backgroundColor = "red";
+            }
+            function west() {
+                resetSignal();
+                document.getElementById("nr").style.backgroundColor = "red";
+                document.getElementById("er").style.backgroundColor = "red";
+                document.getElementById("sr").style.backgroundColor = "red";
+            }
+        </script>
+
+
+        <center>
+            <h1>TASK 4</h1>
+            <h2>PARKING SYSTEM</h2>
+        </center>
+        <div class="slot">
+            <div class="square square1">
+                <span>Slot-1</span>
+                <p class="Number1" style="color:white;"></p>
+            </div>
+            <div class="square square2">
+                <span>Slot-2</span>
+                <p class="Number2" style="color:white;"></p>
+            </div>
+            <div class="square square3">
+                <span>Slot-3</span>
+                <p class="Number3" style="color:white;"></p>
+            </div>
+            <div class="square square4">
+                <span>Slot-4</span>
+                <p class="Number4" style="color:white;"></p>
+            </div>
+            <div class="square square5">
+                <span>Slot-5</span>
+                <p class="Number5" style="color:white;"></p>
+            </div>
+        </div>
+        <div class="bookingSlot">
+            <label for="">Booking Slot</label>
+            <select name="car" id="car" class="options">
+                <option value="Slot-1">Slot-1</option>
+                <option value="Slot-2">Slot-2</option>
+                <option value="Slot-3">Slot-3</option>
+                <option value="Slot-4">Slot-4</option>
+                <option value="Slot-5">Slot-5</option>
+            </select>
+            <label for="">Vehical Number</label>
+            <input type="text" class="number">
+            <button class="bookNow">Book Now</button>
+            <button class="releaseNow">Release Now</button>
+        </div>
+        <hr>
+        <script>
+            document.querySelector(".bookNow").addEventListener("click", () => {
+                var carNumber = document.querySelector(".number").value
+                var slot = document.querySelector(".options").value
+                if (carNumber == "") {
+                    alert("pls Enter the car Number")
+                }
+                else if (slot == "Slot-1" && document.querySelector(".square1").style.backgroundColor != "red") {
+                    document.querySelector(".square1").style.backgroundColor = "red"
+                    document.querySelector(".Number1").innerHTML = carNumber
+                    // alert(carNumber);
+                    document.querySelector(".number").value = ""
+                }
+                else if (slot == "Slot-2" && document.querySelector(".square2").style.backgroundColor != "red") {
+                    document.querySelector(".square2").style.backgroundColor = "red"
+                    document.querySelector(".Number2").innerHTML = carNumber
+                    document.querySelector(".number").value = ""
+                }
+                else if (slot == "Slot-3" && document.querySelector(".square3").style.backgroundColor != "red") {
+                    document.querySelector(".square3").style.backgroundColor = "red"
+                    document.querySelector(".Number3").innerHTML = carNumber
+                    document.querySelector(".number").value = ""
+                }
+                else if (slot == "Slot-4" && document.querySelector(".square4").style.backgroundColor != "red") {
+                    document.querySelector(".square4").style.backgroundColor = "red"
+                    document.querySelector(".Number4").innerHTML = carNumber
+                    document.querySelector(".number").value = ""
+                }
+                else if (slot == "Slot-5" && document.querySelector(".square1").style.backgroundColor != "red") {
+                    document.querySelector(".square5").style.backgroundColor = "red"
+                    document.querySelector(".Number5").innerHTML = carNumber
+                    document.querySelector(".number").value = ""
+                }
+            })
+
+            document.querySelector(".releaseNow").addEventListener("click", () => {
+                var carNumber = document.querySelector(".number").value
+                var slot = document.querySelector(".options").value
+                if (carNumber == "") {
+                    alert("pls Enter the car Number")
+                }
+                else if (slot == "Slot-1") {
+                    document.querySelector(".square1").style.backgroundColor = "green"
+                    document.querySelector(".Number1").innerHTML = ""
+                    document.querySelector(".number").value = ""
+                }
+                else if (slot == "Slot-2") {
+                    document.querySelector(".square2").style.backgroundColor = "green"
+                    document.querySelector(".Number2").innerHTML = ""
+                    document.querySelector(".number").value = ""
+                }
+                else if (slot == "Slot-3") {
+                    document.querySelector(".square3").style.backgroundColor = "green"
+                    document.querySelector(".Number3").innerHTML = ""
+                    document.querySelector(".number").value = ""
+                }
+                else if (slot == "Slot-4") {
+                    document.querySelector(".square4").style.backgroundColor = "green"
+                    document.querySelector(".Number4").innerHTML = ""
+                    document.querySelector(".number").value = ""
+                }
+                else if (slot == "Slot-5") {
+                    document.querySelector(".square5").style.backgroundColor = "green"
+                    document.querySelector(".Number5").innerHTML = ""
+                    document.querySelector(".number").value = ""
+                }
+            })
+        </script>
+
+
+
+        <center>
+            <h1>Task 5</h1>
+        </center>
+        <script>
+            let num1 = 43;
+            let result = num1.toString().split('').reverse().join('');
+            console.log(result);
+        </script>
+
+        <body>
+            <div class="container">
+                <div class="row">
+                    <h2> variable</h2>
+                    <script>
+
+                        function digital_root(n) {
+
+                            if (n >= 10) {
+                                var digits = n.toString().split('').map(function (item, index) { return parseInt(item) }).reduce(function (a, b) { return a + b });
+                                console.log(digits);
+                            }
+                        }
+
+                        digital_root(162)
+                    </script>
+                    <center>
+                        <h3>Chat Box</h3>
+                    </center>
+                    <h1>Hi,How may I help you?</h1>
+                    <button class="CB">check balance</button>
+                    <button class="Recharge">Recharge</button>
+                    <p class="msg show"></p>
+
+                    <div class="Recharged hide">
+                        <label for="">Enter the Amount</label>
+                        <input type="text" class="getRecharge">
+                        <button class="pls">Recharge</button>
+                        <p class="finalMsg"></p>
+                    </div>
+                </div>
+            </div>
+            <script>
+                document.querySelector(".CB").addEventListener("click", () => {
+                    var message = "Your balance is RS.399"
+                    document.querySelector(".msg").innerHTML = message
+                })
+                document.querySelector(".Recharge").addEventListener("click", () => {
+                    document.querySelector(".msg").classList.remove("show");
+                    document.querySelector(".msg").classList.add("hide");
+                    document.querySelector(".Recharged").classList.remove("hide");
+                    document.querySelector(".Recharged").classList.remove("show");
+                })
+                document.querySelector(".pls").addEventListener("click", () => {
+                    var t = document.querySelector(".getRecharge").value
+                    document.querySelector(".finalMsg").innerHTML = `recharged sucessfull ${t}`
+                })
+            </script>
+            </div>
+            </body>
+            </body>
+            </body>
+            </html>            </div>
+        </body>
+</html>
